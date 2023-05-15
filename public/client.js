@@ -1,15 +1,30 @@
-
-// client-side js
-// run by the browser each time your view template is loaded
-
 console.log('hello world :o');
 
+window.onload = function() {
+    const santaForm = document.getElementById('wish-form');
 
-// define variables that reference elements on our page
-const santaForm = document.forms[0];
+    santaForm.addEventListener('submit', function(e) {
+        e.preventDefault();
 
-// listen for the form to be submitted and add a new dream when it is
-santaForm.onsubmit = function (event) {
-  // TODO: check the text isn't more than 100chars before submitting
-  // event.preventDefault();
+        const username = santaForm.userid.value;
+        const wish = santaForm.wish.value;
+
+        // check the text isn't more than 100chars before submitting
+        if (wish.length > 100) {
+            alert('Your wish is too long. Please keep it under 100 characters.');
+            return;
+        }
+
+        axios.post('/submit', {
+            userid: username,
+            wish: wish
+        })
+            .then(function (response) {
+                alert(response.data);
+                santaForm.reset();  // reset form fields after successful submission
+            })
+            .catch(function (error) {
+                console.error(error);
+            });
+    });
 };
