@@ -18,8 +18,8 @@ app.post('/submit', async (req, res) => {
   const userWish = req.body.wish;
 
   try {
-    const usersResponse = await axios.get('https://raw.githubusercontent.com/alj-devops/santa-data/master/users.json');
-    const profilesResponse = await axios.get('https://raw.githubusercontent.com/alj-devops/santa-data/master/userProfiles.json');
+    const usersResponse = await axios.get(`${process.env.API_URL}/users.json`);
+    const profilesResponse = await axios.get(`${process.env.API_URL}/userProfiles.json`);
 
     const user = lodash.find(usersResponse.data, { username: username })
 
