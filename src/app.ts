@@ -1,6 +1,7 @@
 import express from 'express';
 import morgan from 'morgan';
 import bodyParser from 'body-parser';
+
 import errorMiddleware from './middlewares/error.middleware';
 import submitRoute from './routes/submit.route';
 import indexRoute from './routes/index.route';
