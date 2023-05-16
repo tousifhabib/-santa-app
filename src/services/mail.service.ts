@@ -1,19 +1,7 @@
 import nodemailer from 'nodemailer';
+import { WishRequest } from '../interfaces/wish-request.interface';
 
 import logger from '../middlewares/logger.middleware';
-
-/**
- * Structure of the wish request
- * @typedef {Object} WishRequest
- * @property {string} username - The user's name
- * @property {string} address - The user's address
- * @property {string} wish - The user's wish
- */
-interface WishRequest {
-  username: string;
-  address: string;
-  wish: string;
-}
 
 /**
  * Sends an email containing the requests in the requestList

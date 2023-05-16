@@ -2,24 +2,12 @@ import * as path from 'path';
 import cron from 'node-cron';
 
 import { Request, Response } from 'express';
+import { WishRequest } from '../interfaces/wish-request.interface';
 
 import { getUserData, getProfileData } from '../services/user.service';
 import { sendMail } from '../services/mail.service';
 import { calculateAge } from '../utils/calculateAge.util';
 import logger from '../middlewares/logger.middleware';
-
-/**
- * Structure of the wish request
- * @typedef {Object} WishRequest
- * @property {string} username - The user's name
- * @property {string} address - The user's address
- * @property {string} wish - The user's wish
- */
-interface WishRequest {
-  username: string;
-  address: string;
-  wish: string;
-}
 
 const requestList: WishRequest[] = [];
 

@@ -1,31 +1,9 @@
 import axios from 'axios';
 import lodash from 'lodash';
+import { User } from '../interfaces/user.interface';
+import { UserProfile } from '../interfaces/user-profile.interface';
 
 import logger from '../middlewares/logger.middleware';
-
-/**
- * Structure of the User
- * @typedef {Object} User
- * @property {string} username - The user's name
- * @property {string} uid - The user's unique ID
- */
-interface User {
-  username: string;
-  uid: string;
-}
-
-/**
- * Structure of the UserProfile
- * @typedef {Object} UserProfile
- * @property {string} userUid - The user's unique ID
- * @property {string} address - The user's address
- * @property {string} birthdate - The user's birthdate
- */
-interface UserProfile {
-  userUid: string;
-  address: string;
-  birthdate: string;
-}
 
 /**
  * Retrieves a user's data from an API
