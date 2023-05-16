@@ -77,3 +77,56 @@ On the back-end,
 - add frameworks and packages in `package.json`
 - safely store app secrets in `.env` (nobody can see this but you and people you invite)
 - app uses node8 by default, it is possible to update the version of nodejs used: https://glitch.com/help/node/
+
+------------
+
+# Readme
+## How to use this application
+### Glitch
+Go to this link and use it:
+```
+https://perfect-coffee-ketchup.glitch.me/
+```
+
+### Node.js
+1. Clone this repository
+2. Install dependencies
+```
+npm install
+```
+3. Run the tests
+```
+npm run test
+```
+4. Run the application
+```
+npm run start
+```
+5. Go to `localhost:3000` in your browser and use the application
+
+### Docker
+1. Clone this repository
+2. Build and run the docker container with the following command:
+```
+docker-compose up
+```
+3. Go to `localhost:3000` in your browser and use the application
+
+## How to use the application
+### Send an email to Santa
+1. Go to the homepage
+2. Enter your username and your message to Santa
+3. If the username is not found or the user is older than 10 years old, an error page will be displayed
+4. If the username is found and the user is younger than 10 years old, a confirmation page will be displayed
+5. Every 15 seconds, an email will be sent to Santa with all the pending requests
+6. You can check the emails sent to Santa by going to the following link:
+```
+https://ethereal.email
+```
+7. You can log in with the following credentials:
+```
+email: rahsaan.ratke@ethereal.email
+password: XtYWm75xKNHqhMPD3x
+```
+8. Check the emails by clicking on the `Messages` tab
+
