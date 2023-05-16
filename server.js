@@ -60,43 +60,16 @@ app.post('/submit', async (req, res) => {
   try {
     const user = await getUserData(req.body.userid);
     if (!user) {
-      return res.status(400).send(`
-    <html>
-      <head>
-        <link rel="stylesheet" href="/style.css">
-      </head>
-      <body>
-        <h1>Error: User not registered</h1>
-      </body>
-    </html>
-      `);
+      return res.status(400).sendFile(__dirname + '/views/error/user-not-registered.html');
     }
 
     const profile = await getProfileData(user.uid);
     if (!profile) {
-      return res.status(400).send(`
-    <html>
-      <head>
-        <link rel="stylesheet" href="/style.css">
-      </head>
-      <body>
-        <h1>Error: No profile found for this user</h1>
-      </body>
-    </html>
-      `);
+      return res.status(400).sendFile(__dirname + '/views/error/no-profile-found.html');
     }
 
     if (calculateAge(profile.birthdate) > 10) {
-      return res.status(400).send(`
-        <html>
-          <head>
-            <link rel="stylesheet" href="/style.css">
-          </head>
-          <body>
-            <h1>Error: Age is greater than 10</h1>
-          </body>
-        </html>
-      `);
+      return res.status(400).sendFile(__dirname + '/views/error/age-greater-than-10.html');
     }
 
     requestList.push({
@@ -105,18 +78,7 @@ app.post('/submit', async (req, res) => {
       wish: req.body.wish
     });
 
-    return res.send(`
-      <html>
-        <body>
-          <h1>Request received!</h1>
-          <script>
-            setTimeout(function () {
-              window.location.href = '/';
-            }, 5000);
-          </script>
-        </body>
-      </html>
-    `);
+    return res.sendFile(__dirname + '/views/request-received.html');
   } catch (error) {
     return res.status(500).send(error.message);
   }
