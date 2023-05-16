@@ -14,7 +14,16 @@ app.use(morgan('dev'));
 app.use(express.static('dist'));
 app.use(express.static('public'));
 
+/**
+ * Main route of the app
+ * @name get/
+ */
 app.use('/', indexRoute);
+
+/**
+ * Submit route of the app
+ * @name post/submit
+ */
 app.use('/submit', submitRoute);
 
 app.use(errorMiddleware);

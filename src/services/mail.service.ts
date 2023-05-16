@@ -2,12 +2,24 @@ import nodemailer from 'nodemailer';
 
 import logger from '../middlewares/logger.middleware';
 
+/**
+ * Structure of the wish request
+ * @typedef {Object} WishRequest
+ * @property {string} username - The user's name
+ * @property {string} address - The user's address
+ * @property {string} wish - The user's wish
+ */
 interface WishRequest {
   username: string;
   address: string;
   wish: string;
 }
 
+/**
+ * Sends an email containing the requests in the requestList
+ * @param {WishRequest[]} requestList - List of user requests
+ * @returns {Promise<any>} The result of the sendMail operation
+ */
 export async function sendMail(requestList: WishRequest[]): Promise<any> {
   const transporter = nodemailer.createTransport({
     host: process.env.SMTP_HOST,

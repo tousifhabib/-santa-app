@@ -1,5 +1,9 @@
 import winston, { format, transports } from 'winston';
 
+/**
+ * Logger module for application logging
+ * @module logger
+ */
 const logger = winston.createLogger({
   level: 'info',
   format: format.json(),

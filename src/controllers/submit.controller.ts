@@ -8,6 +8,13 @@ import { sendMail } from '../services/mail.service';
 import { calculateAge } from '../utils/calculateAge.util';
 import logger from '../middlewares/logger.middleware';
 
+/**
+ * Structure of the wish request
+ * @typedef {Object} WishRequest
+ * @property {string} username - The user's name
+ * @property {string} address - The user's address
+ * @property {string} wish - The user's wish
+ */
 interface WishRequest {
   username: string;
   address: string;
@@ -23,6 +30,11 @@ cron.schedule('*/15 * * * * *', async () => {
   }
 });
 
+/**
+ * Processes a user's wish request
+ * @param {Request} req - Express request object
+ * @param {Response} res - Express response object
+ */
 export async function submitRequest(req: Request, res: Response): Promise<void> {
   try {
     const user = await getUserData(req.body.userid);
