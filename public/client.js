@@ -1,7 +1,7 @@
-window.onload = function() {
+window.onload = () => {
     const santaForm = document.getElementById('wish-form');
 
-    santaForm.addEventListener('submit', function(e) {
+    santaForm.addEventListener('submit', async (e) => {
         e.preventDefault();
 
         const username = santaForm.userid.value;
@@ -12,25 +12,22 @@ window.onload = function() {
             return;
         }
 
-        axios.post('/submit', {
-            userid: username,
-            wish: wish
-        })
-            .then(function (response) {
-                document.documentElement.innerHTML = response.data;
-                setTimeout(function () {
-                    window.location.href = '/';
-                }, 5000);
-            })
-            .catch(function (error) {
-                if (error.response) {
-                    document.documentElement.innerHTML = error.response.data;
-                    setTimeout(function () {
-                        window.location.href = '/';
-                    }, 5000);
-                } else {
-                    console.error(error);
-                }
-            });
+        try {
+            const response = await axios.post('/submit', { userid: username, wish: wish });
+            displayResponse(response.data);
+        } catch (error) {
+            if (error.response) {
+                displayResponse(error.response.data);
+            } else {
+                console.error(error);
+            }
+        }
     });
 };
+
+function displayResponse(data) {
+    document.documentElement.innerHTML = data;
+    setTimeout(() => {
+        window.location.href = '/';
+    }, 5000);
+}
