@@ -44,7 +44,7 @@ describe('POST /', () => {
     getProfileDataStub.resolves({
       uid: 'test-uid',
       address: '123 Test St',
-      birthdate: '01/01/2019',
+      birthdate: '2019/01/01',
     });
 
     const res = await request(app)
@@ -66,13 +66,12 @@ describe('POST /', () => {
     getProfileDataStub.resolves({
       uid: 'test-uid',
       address: '123 Test St',
-      birthdate: '01/01/2000',
+      birthdate: '2000/01/01',
     });
 
     const res = await request(app)
       .post('/')
-      .send({
-        userid: 'charlie.brown',
+      .send({userid: 'charlie.brown',
         wish: 'I want a bike',
       })
       .expect(400);

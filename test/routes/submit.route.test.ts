@@ -41,7 +41,7 @@ describe('POST /', () => {
     getProfileDataStub.resolves({
       uid: 'test-uid',
       address: '123 Test St',
-      birthdate: '01/01/2019',
+      birthdate: '2019/01/01',
     });
 
     const res = await request(app)
