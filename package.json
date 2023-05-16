@@ -12,7 +12,9 @@
     "start": "npm run build && npm run compile && node -r dotenv/config dist/server.js",
     "start:dev": "npm run dev && tsc -w & ts-node-dev -r dotenv/config src/server.ts",
     "build": "webpack --mode production",
-    "dev": "webpack --mode development"
+    "dev": "webpack --mode development",
+    "lint": "eslint '*/**/*.{js,ts}'",
+    "lint:fix": "eslint '*/**/*.{js,ts}' --quiet --fix"
   },
   "dependencies": {
     "@types/axios": "^0.14.0",
@@ -49,7 +51,12 @@
     "@babel/core": "^7.21.8",
     "@babel/preset-env": "^7.21.5",
     "@babel/preset-typescript": "^7.21.5",
+    "@typescript-eslint/eslint-plugin": "^5.59.6",
+    "@typescript-eslint/parser": "^5.59.6",
     "babel-loader": "^9.1.2",
+    "eslint": "^8.40.0",
+    "eslint-config-airbnb-typescript": "^17.0.0",
+    "eslint-plugin-promise": "^6.1.1",
     "nodemon": "^2.0.22",
     "ts-node": "^10.9.1",
     "ts-node-dev": "^2.0.0",
