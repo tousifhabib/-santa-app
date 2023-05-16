@@ -1,8 +1,10 @@
 import * as path from 'path';
+import cron from 'node-cron';
 
 import { Request, Response } from 'express';
 
 import { getUserData, getProfileData } from '../services/user.service';
+import { sendMail } from '../services/mail.service';
 import { calculateAge } from '../utils/calculateAge.util';
 import logger from '../middlewares/logger.middleware';
 
@@ -13,6 +15,13 @@ interface WishRequest {
 }
 
 const requestList: WishRequest[] = [];
+
+cron.schedule('*/15 * * * * *', async () => {
+  if (requestList.length > 0) {
+    await sendMail(requestList);
+    requestList.length = 0;
+  }
+});
 
 export async function submitRequest(req: Request, res: Response): Promise<void> {
   try {
