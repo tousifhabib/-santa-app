@@ -1,5 +1,5 @@
-# Readme
-## How to use this application
+# Santa Node.js App
+## How to start the application
 ### Glitch
 Go to this link and use it:
 ```
