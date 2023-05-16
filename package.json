@@ -8,7 +8,7 @@
   "main": "src/server.ts",
   "scripts": {
     "compile": "tsc",
-    "postcompile": "cp -r views dist/",
+    "postcompile": "cp -r public/favicon.png views dist/",
     "start": "npm run build && npm run compile && node -r dotenv/config dist/src/server.js",
     "start:dev": "npm run dev && tsc -w & ts-node-dev -r dotenv/config src/server.ts",
     "build": "webpack --mode production",
