@@ -1,5 +1,3 @@
-console.log('hello world :o');
-
 window.onload = function() {
     const santaForm = document.getElementById('wish-form');
 
@@ -9,7 +7,6 @@ window.onload = function() {
         const username = santaForm.userid.value;
         const wish = santaForm.wish.value;
 
-        // check the text isn't more than 100chars before submitting
         if (wish.length > 100) {
             alert('Your wish is too long. Please keep it under 100 characters.');
             return;
@@ -20,11 +17,20 @@ window.onload = function() {
             wish: wish
         })
             .then(function (response) {
-                alert(response.data);
-                santaForm.reset();  // reset form fields after successful submission
+                document.documentElement.innerHTML = response.data;
+                setTimeout(function () {
+                    window.location.href = '/';
+                }, 5000);
             })
             .catch(function (error) {
-                console.error(error);
+                if (error.response) {
+                    document.documentElement.innerHTML = error.response.data;
+                    setTimeout(function () {
+                        window.location.href = '/';
+                    }, 5000);
+                } else {
+                    console.error(error);
+                }
             });
     });
 };
