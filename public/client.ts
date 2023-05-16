@@ -18,6 +18,19 @@ function displayResponse(data: string): void {
 
 window.onload = () => {
   const santaForm = document.getElementById('wish-form') as HTMLFormElement;
+  const wishTextarea = document.getElementById('wish') as HTMLTextAreaElement;
+  const characterCount = document.getElementById('character-count');
+
+  if (!characterCount) {
+    console.error('Character count element not found');
+    return;
+  }
+
+  characterCount.textContent = `${wishTextarea.value.length} / 100`;
+
+  wishTextarea.addEventListener('input', () => {
+    characterCount.textContent = `${wishTextarea.value.length} / 100`;
+  });
 
   santaForm.addEventListener('submit', async (e) => {
     e.preventDefault();
