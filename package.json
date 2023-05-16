@@ -5,12 +5,12 @@
   "name": "santa-app",
   "version": "0.0.1",
   "description": "A simple Node app built on Express, instantly up and running.",
-  "main": "server.ts",
+  "main": "src/server.ts",
   "scripts": {
     "compile": "tsc",
     "postcompile": "cp -r views dist/",
     "start": "npm run build && npm run compile && node -r dotenv/config dist/server.js",
-    "start:dev": "npm run dev && tsc -w & ts-node-dev -r dotenv/config server.ts",
+    "start:dev": "npm run dev && tsc -w & ts-node-dev -r dotenv/config src/server.ts",
     "build": "webpack --mode production",
     "dev": "webpack --mode development"
   },
