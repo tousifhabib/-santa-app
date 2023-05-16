@@ -1,7 +1,7 @@
 import logger from '../middlewares/logger.middleware';
 
 export function calculateAge(birthdate: string): number {
-  const [day, month, year] = birthdate.split('/').map(Number);
+  const [year, month, day] = birthdate.split('/').map(Number);
   const now = new Date();
   const thisYear = now.getFullYear();
   let age = thisYear - year;
