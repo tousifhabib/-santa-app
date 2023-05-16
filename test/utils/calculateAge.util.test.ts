@@ -6,7 +6,8 @@ describe('calculateAge', () => {
     const age = calculateAge(birthdate);
     const currentYear = new Date().getFullYear();
     const hasHadBirthday = new Date().getMonth() > 0 || (new Date().getMonth() === 0 && new Date().getDate() >= 1);
-    const expectedAge = hasHadBirthday ? currentYear - 2000 : currentYear - 2000 - 1;
+    const expectedAge = hasHadBirthday ? currentYear - 2001 : currentYear - 2001 - 1;
     expect(age).toEqual(expectedAge);
   });
 });
+
