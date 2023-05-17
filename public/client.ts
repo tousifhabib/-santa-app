@@ -35,11 +35,23 @@ window.onload = () => {
   santaForm.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    const username = santaForm.userid.value;
+    let username = santaForm.userid.value;
     const wish = santaForm.wish.value;
+
+    if (username.length > 50) {
+      alert('Your username is too long. Please keep it under 50 characters.');
+      return;
+    }
 
     if (wish.length > 100) {
       alert('Your wish is too long. Please keep it under 100 characters.');
+      return;
+    }
+
+    username = username.replace(/\s/g, '');
+
+    if (!/^[A-Za-z\.]+$/.test(username)) {
+      alert('Username should only contain letters and a dot.');
       return;
     }
 
