@@ -1,9 +1,9 @@
 import * as path from 'path';
+
 import cron from 'node-cron';
-
 import { Request, Response } from 'express';
-import { WishRequest } from '../interfaces/wish-request.interface';
 
+import { WishRequest } from '../interfaces/wish-request.interface';
 import { getUserData, getProfileData } from '../services/user.service';
 import { sendMail } from '../services/mail.service';
 import { calculateAge } from '../utils/calculateAge.util';

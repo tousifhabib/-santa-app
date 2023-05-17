@@ -6,7 +6,7 @@
  * @property {string} birthdate - The user's birthdate
  */
 export interface UserProfile {
-    userUid: string;
-    address: string;
-    birthdate: string;
+  userUid: string;
+  address: string;
+  birthdate: string;
 }

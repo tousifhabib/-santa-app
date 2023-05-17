@@ -1,6 +1,6 @@
 import nodemailer from 'nodemailer';
-import { WishRequest } from '../interfaces/wish-request.interface';
 
+import { WishRequest } from '../interfaces/wish-request.interface';
 import logger from '../middlewares/logger.middleware';
 
 /**

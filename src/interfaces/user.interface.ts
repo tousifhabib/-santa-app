@@ -5,6 +5,6 @@
  * @property {string} uid - The user's unique ID
  */
 export interface User {
-    username: string;
-    uid: string;
+  username: string;
+  uid: string;
 }

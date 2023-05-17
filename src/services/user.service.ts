@@ -1,8 +1,8 @@
 import axios from 'axios';
 import lodash from 'lodash';
+
 import { User } from '../interfaces/user.interface';
 import { UserProfile } from '../interfaces/user-profile.interface';
-
 import logger from '../middlewares/logger.middleware';
 
 /**

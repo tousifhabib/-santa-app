@@ -71,7 +71,7 @@ describe('POST /', () => {
 
     const res = await request(app)
       .post('/')
-      .send({userid: 'charlie.brown',
+      .send({ userid: 'charlie.brown',
         wish: 'I want a bike',
       })
       .expect(400);

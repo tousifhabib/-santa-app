@@ -6,7 +6,7 @@
  * @property {string} wish - The user's wish
  */
 export interface WishRequest {
-    username: string;
-    address: string;
-    wish: string;
+  username: string;
+  address: string;
+  wish: string;
 }
